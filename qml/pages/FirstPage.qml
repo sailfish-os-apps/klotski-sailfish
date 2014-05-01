@@ -4,6 +4,7 @@ import "../components"
 
 Page {
     id: page;
+    Component.onCompleted: { currentPlayground = playground; }
 
     SilicaFlickable {
         contentHeight: column.height;
@@ -12,6 +13,7 @@ Page {
 
         PullDownMenu {
             Repeater {
+                visible: false;
                 model: playground.levels;
                 delegate: MenuItem {
                     text: qsTr ("Level %1").arg (model.index +1);
